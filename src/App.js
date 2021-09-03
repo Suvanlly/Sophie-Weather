@@ -27,6 +27,7 @@ const SearchInput = styled.input`
   border: none;
   height: 50px;
   margin-right: 10px;
+  padding: 10px;
   &:focus {
     outline: none;
   }
