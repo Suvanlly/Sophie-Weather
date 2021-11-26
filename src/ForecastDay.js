@@ -1,10 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const ForecastWrapper = styled.div`
   flex-shrink: 0;
-  flex-basis: 200px;
+  flex-basis: 10%;
   border-radius: 10px;
+  padding-bottom: 20px;
   background-color: rgba(255, 255, 255, 0.2);
   &:first-child {
     margin-left: 30px;
@@ -24,36 +25,29 @@ const WeatherIcon = styled.img`
   margin: 0 auto;
 `;
 
-
 const SmallLabel = styled.h4`
-  color: #FFFFFF;
+  color: #ffffff;
   display: block;
   font-weight: 600;
-  font-size: 26px;
+  font-size: 24px;
   text-align: center;
   padding: 5px 0;
-`
+`;
 
 const ForecastDay = (props) => {
-  const { temp, icon, main, date } = props
-  console.log(date)
-  const iconURL = `http://openweathermap.org/img/wn/${icon}@2x.png`
-  const humanDate =  new Date(date * 1000).toLocaleString("en-gb").slice(0,10)
-  console.log(humanDate)
+  const { temp, icon, main, date } = props;
+  console.log(date);
+  const iconURL = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+  const humanDate = new Date(date * 1000).toLocaleString("en-gb").slice(0, 10);
+  console.log(humanDate);
   return (
     <ForecastWrapper>
       <WeatherIcon src={iconURL} />
-      <SmallLabel>
-        {humanDate}
-      </SmallLabel>
-      <SmallLabel>
-        {temp}&#176;C
-      </SmallLabel>
-      <SmallLabel>
-        {main}
-      </SmallLabel>
+      <SmallLabel>{humanDate}</SmallLabel>
+      <SmallLabel>{temp}&#176;C</SmallLabel>
+      <SmallLabel>{main}</SmallLabel>
     </ForecastWrapper>
-  )
-}
+  );
+};
 
 export default ForecastDay;
