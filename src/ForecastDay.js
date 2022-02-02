@@ -36,10 +36,10 @@ const SmallLabel = styled.h4`
 
 const ForecastDay = (props) => {
   const { temp, icon, main, date } = props;
-  console.log(date);
+  // console.log(date);
   const iconURL = `http://openweathermap.org/img/wn/${icon}@2x.png`;
   const humanDate = new Date(date * 1000).toLocaleString("en-gb").slice(0, 10);
-  console.log(humanDate);
+  // console.log(humanDate);
   return (
     <ForecastWrapper>
       <WeatherIcon src={iconURL} />

@@ -111,6 +111,7 @@ const Result = ({ weather }) => {
     }
     return null;
   });
+  
   return (
     <>
       <OutputWrapper>

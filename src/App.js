@@ -70,22 +70,25 @@ class App extends Component {
     const value = this.state.inputValue
     const geoAPIkey = 'AIzaSyBjoZIOKg9rrHX3UXgMf1YmvBpfTGT7puM'
     const googleSource = `https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=${geoAPIkey}`
+
+    // Have to fetch googleSource first to get location's latitude and longitude
     fetch (googleSource)
       .then(response => response.json())
       .then(googleData => {
-        console.log(googleSource)
-        console.log(googleData)
+        // console.log(googleSource)
+        // console.log(googleData)
         const lat = googleData.results[0].geometry.location.lat
         const lng = googleData.results[0].geometry.location.lng
-        console.log(lat, lng)
-
+        // console.log(lat, lng)
         const APIkey = '638d3030eafa245040554df387be8a9c'
         const weatherSource = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&units=metric&appid=${APIkey}`
+
+        // Use latitude and longitude data fetched from googleData to get weather data
         fetch(weatherSource)
           .then(response => response.json())
           .then(weatherData => {
-            console.log(weatherData)
-            console.log(weatherData.daily)
+            // console.log(weatherData)
+            // console.log(weatherData.daily)
             const months = [
               'January',
               'February',
@@ -122,8 +125,8 @@ class App extends Component {
             })
           })
       })
-      .catch(err => {
-        console.log(err)
+      .catch(error => {
+        // console.log(err)
         this.setState({
           error: true,
           weatherDisplay: false
