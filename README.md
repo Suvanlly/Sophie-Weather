@@ -12,7 +12,6 @@
 
 `npm install` - Install dependenies <br />
 `npm start` - Run application <br />
-`npm run test` - Run testing
 
 ## Contact
 
